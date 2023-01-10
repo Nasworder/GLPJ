@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8805d680-40ce-4557-bd2b-abffdcc42438" name="Changes" comment="" />
+    <list default="true" id="6fdd2d3b-afb9-4284-aa0c-e789824833d7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,29 +20,28 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2K61BpBvKIor8ZtBkr2XSiI7VK1" />
+  <component name="ProjectId" id="2K8wn87hkO3VM95X2MNnNyCzNlz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8805d680-40ce-4557-bd2b-abffdcc42438" name="Changes" comment="" />
-      <created>1673280087602</created>
+      <changelist id="6fdd2d3b-afb9-4284-aa0c-e789824833d7" name="Changes" comment="" />
+      <created>1673369683961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673280087602</updated>
-      <workItem from="1673280088883" duration="2598000" />
-      <workItem from="1673354392946" duration="104000" />
+      <updated>1673369683961</updated>
+      <workItem from="1673369685711" duration="4059000" />
     </task>
     <servers />
   </component>
