@@ -9,7 +9,7 @@ import java.util.Random;
  * @author David J. Barnes et Michael Kolling
  * @version 2008.03.30
  */
-public class Fox extends Animal implements Drawable
+public class Fox
 {
     // Caractéristiques partagées par tous les renards (champs statistiques).
     
@@ -24,17 +24,19 @@ public class Fox extends Animal implements Drawable
     // La valeur nutritive d'un lapin. C'est le nombre de pas qu'un renard 
     // peut réaliser avant de devoir manger.
     private static final int RABBIT_FOOD_VALUE = 7;
-
-    protected static final Random rand = Randomizer.getRandom();
-
-    protected Location location;
-    protected Field field;
-
+    // Un générateur de nombres aléatoires commun pour contrôler les reproductions.
+    private static final Random rand = Randomizer.getRandom();
     
     // Caractéristiques individuelles (champs d'instance).
 
-
-
+    // L'âge du renard.
+    private int age;
+    // Le renard est vivant ou mort.
+    private boolean alive;
+    // La position du renard.
+    private Location location;
+    // Le terrain occupé.
+    private Field field;
     // La réserve alimentaire du renard, augmentée lorsque le renard mange des lapins.
     private int foodLevel;
 
@@ -48,56 +50,28 @@ public class Fox extends Animal implements Drawable
      */
     public Fox(boolean randomAge, Field field, Location location)
     {
-        super(randomAge);
+        age = 0;
+        alive = true;
+        this.field = field;
+        setLocation(location);
         if(randomAge) {
+            age = rand.nextInt(MAX_AGE);
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
         }
         else {
             // laisser l'âge à zéro
             foodLevel = RABBIT_FOOD_VALUE;
         }
-        setField(field);
-        setLocation(location);
     }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    protected void setDead(){
-        alive = false;
-        if(location != null) {
-            field.clear(location);
-            location = null;
-            field = null;
-        }
-    }
-
-
-    public void setLocationNull() {
-        location = null;
-    }
-
-    public void setFieldNull() {
-        field = null;
-    }
-
-    public void setLocation(Location newLocation) {
-        if(location != null) {
-            field.clear(location);
-        }
-        location = newLocation;
-        field.place(this, newLocation);
-    }
-
-
+    
     /**
      * Ce que fait le renard la plupart du temps : il chasse des lapins.
      * Durant cette chasse, il peut se reproduire, mourir de faim
      * ou mourir de vieillesse.
-
+     * @param field Le terrain actuellement occupé.
+     * @param newFoxes Une liste à laquelle ajouter les nouveau-nés.
      */
-    public void act(List<Actor> newFoxes)
+    public void hunt(List<Fox> newFoxes)
     {
         incrementAge();
         incrementHunger();
@@ -120,8 +94,47 @@ public class Fox extends Animal implements Drawable
         }
     }
 
+    /**
+     * Vérifier si le renard est mort ou vivant.
+     * @return True si le renard est toujours vivant.
+     */
+    public boolean isAlive()
+    {
+        return alive;
+    }
 
-
+    /**
+     * Renvoie la position du renard.
+     * @return La position du renard.
+     */
+    public Location getLocation()
+    {
+        return location;
+    }
+    
+    /**
+     * Place le renard à la nouvelle position dans le champ donné.
+     * @param newLocation La nouvelle position du renard.
+     */
+    private void setLocation(Location newLocation)
+    {
+        if(location != null) {
+            field.clear(location);
+        }
+        location = newLocation;
+        field.place(this, newLocation);
+    }
+    
+    /**
+     * Augmente l'âge. Ceci pourrait entraîner la mort du renard.
+     */
+    private void incrementAge()
+    {
+        age++;
+        if(age > MAX_AGE) {
+            setDead();
+        }
+    }
     
     /**
      * Rend ce renard plus affamé. Peut provoquer la mort.
@@ -165,7 +178,7 @@ public class Fox extends Animal implements Drawable
      * Les naissances auront lieu dans les emplacements adjacents libres.
      * @param newFoxes Une liste pour ajouter les renards nouveau-nés.
      */
-    private void giveBirth(List<Actor> newFoxes)
+    private void giveBirth(List<Fox> newFoxes)
     {
         // Les renards naissent dans les positions adjacentes.
         // Obtenir une liste des positions adjacentes libres.
@@ -177,37 +190,40 @@ public class Fox extends Animal implements Drawable
             newFoxes.add(young);
         }
     }
-
-
-    protected int getBreedingAge()
+        
+    /**
+     * Générer un nombre représentant le nombre de naissances,
+     * s'il peut se reproduire.
+     * @return Le nombre de naissances (peut être égal à zéro).
+     */
+    private int breed()
     {
-        return BREEDING_AGE;
+        int births = 0;
+        if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
+            births = rand.nextInt(MAX_LITTER_SIZE) + 1;
+        }
+        return births;
     }
 
-    protected int getMaxAge()
+    /**
+     * Un renard peut se reproduire s'il a atteint l'âge adulte.
+     */
+    private boolean canBreed()
     {
-        return MAX_AGE;
+        return age >= BREEDING_AGE;
     }
 
-    protected double getBreedingProbability()
+    /**
+     * Indique que le renard est mort.
+     * Il est retiré du terrain.
+     */
+    private void setDead()
     {
-        return BREEDING_PROBABILITY;
+        alive = false;
+        if(location != null) {
+            field.clear(location);
+            location = null;
+            field = null;
+        }
     }
-
-    protected int getMaxLitterSize()
-    {
-        return MAX_LITTER_SIZE;
-    }
-
-    protected Field getField()
-    {
-        return field;
-    }
-
-    protected void setField(Field field)
-    {
-        this.field = field;
-    }
-
-
 }

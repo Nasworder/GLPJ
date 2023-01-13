@@ -23,6 +23,7 @@ public class Rabbit extends Animal implements Drawable
 
 
 
+
     /**
      * Crée un lapin. Un lapin peut être créé comme nouveau-né (âge nul)
      * ou avec un âge aléatoire.

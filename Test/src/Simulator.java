@@ -7,7 +7,7 @@ import java.awt.Color;
 /**
  * Une simulation élémentaire proies-prédateurs, fondée sur un terrain
  * contenant des lapins (rabbits) et des renards (foxes).
- *
+ * 
  * @author David J. Barnes et Michael Kolling
  * @version 2008.03.30
  */
@@ -21,18 +21,18 @@ public class Simulator
     // La probabilité qu'un renard soit créé à une position donnée sur la grille.
     private static final double FOX_CREATION_PROBABILITY = 0.02;
     // La probabilité qu'un lapin soit créé dans une position de la grille
-    private static final double RABBIT_CREATION_PROBABILITY = 0.08;
+    private static final double RABBIT_CREATION_PROBABILITY = 0.08;    
 
     // Répertorie les animaux du terrain. Il existe des listes séparées pour simplifier l'itération.
-    private List<Actor> actors;
-
+    private List<Rabbit> rabbits;
+    private List<Fox> foxes;
     // L'état courant du terrain.
     private Field field;
     // Le pas actuel de la simulation.
     private int step;
     // Une représentation graphique de la simulation.
     private SimulatorView view;
-
+    
     /**
      * Construit un terrain de simulation avec une taille donnée.
      */
@@ -40,7 +40,7 @@ public class Simulator
     {
         this(DEFAULT_DEPTH, DEFAULT_WIDTH);
     }
-
+    
     /**
      * Construit un terrain de simulation avec une taille donnée.
      * @param depth La profondeur du terrain. Doit être supérieure à zéro.
@@ -54,19 +54,20 @@ public class Simulator
             depth = DEFAULT_DEPTH;
             width = DEFAULT_WIDTH;
         }
-
-        actors = new ArrayList<Actor>();
+        
+        rabbits = new ArrayList<Rabbit>();
+        foxes = new ArrayList<Fox>();
         field = new Field(depth, width);
 
         // Créer une vue de l'état de chaque position du terrain.
         view = new SimulatorView(depth, width);
         view.setColor(Rabbit.class, Color.orange);
         view.setColor(Fox.class, Color.blue);
-
+        
         // Définir un point de départ valide.
         reset();
     }
-
+    
     /**
      * Exécute la simulation à partir de son état courant pour une période assez longue,
      * par exemple 500 pas.
@@ -75,7 +76,7 @@ public class Simulator
     {
         simulate(500);
     }
-
+    
     /**
      * Exécute la simulation à partir de son état courant pour un nombre de pas donné.
      * Arrête avant si elle n'est plus viable.
@@ -87,7 +88,7 @@ public class Simulator
             simulateOneStep();
         }
     }
-
+    
     /**
      * Exécute la simulation à partir de son état courant pour un pas.
      * Parcourt tout le terrain en mettant à jour l'état de chaque
@@ -98,37 +99,48 @@ public class Simulator
         step++;
 
         // Fournir de l'espace pour les lapins nouveau-nés.
-        List<Actor> newActors = new ArrayList<Actor>();
+        List<Rabbit> newRabbits = new ArrayList<Rabbit>();        
         // Faire agir les lapins.
-        for(Iterator<Actor> it = actors.iterator(); it.hasNext(); ) {
-            Actor actor = it.next();
-            actor.act(newActors);
-            if(! actor.isAlive()) {
+        for(Iterator<Rabbit> it = rabbits.iterator(); it.hasNext(); ) {
+            Rabbit rabbit = it.next();
+            rabbit.run(newRabbits);
+            if(! rabbit.isAlive()) {
                 it.remove();
             }
         }
-
-
+        
+        // Fournir de l'espace par les renards nouveau-nés.
+        List<Fox> newFoxes = new ArrayList<Fox>();        
+        // Faire agir les renards.
+        for(Iterator<Fox> it = foxes.iterator(); it.hasNext(); ) {
+            Fox fox = it.next();
+            fox.hunt(newFoxes);
+            if(! fox.isAlive()) {
+                it.remove();
+            }
+        }
+        
         // ajouter les nouveau-nés aux listes principales
-        actors.addAll(newActors);
-
+        rabbits.addAll(newRabbits);
+        foxes.addAll(newFoxes);
 
         view.showStatus(step, field);
     }
-
+        
     /**
      * Réinitialise la simulation.
      */
     public void reset()
     {
         step = 0;
-        actors.clear();
+        rabbits.clear();
+        foxes.clear();
         populate();
-
+        
         // Montrer l'état de départ.
         view.showStatus(step, field);
     }
-
+    
     /**
      * Peuple le terrain avec des renards et des lapins.
      */
@@ -140,13 +152,13 @@ public class Simulator
             for(int col = 0; col < field.getWidth(); col++) {
                 if(rand.nextDouble() <= FOX_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Actor fox = new Fox(true, field, location);
-                    actors.add(fox);
+                    Fox fox = new Fox(true, field, location);
+                    foxes.add(fox);
                 }
                 else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Actor rabbit = new Rabbit(true, field, location);
-                    actors.add(rabbit);
+                    Rabbit rabbit = new Rabbit(true, field, location);
+                    rabbits.add(rabbit);
                 }
                 // else laisser la position vide.
             }

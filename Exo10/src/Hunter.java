@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Hunter implements Actor, Drawable {
+public class Hunter implements Drawable {
 
     public void act(List<Actor> newAnimals) {
 

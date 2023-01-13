@@ -5,4 +5,5 @@ public interface Actor {
 
     boolean isAlive();
 
+
 }
