@@ -6,7 +6,7 @@ public class Main {
         simulator = new Simulator();
 
 
-/*
+
         for (int i = 0; i < 50; i++) {
             simulator.simulateOneStep();
             try {
@@ -16,16 +16,7 @@ public class Main {
             }
         }
 
-*/
 
-        Animal fox = new Rabbit(false, new Field(10,10), new Location(2, 2));
-        System.out.println(fox.getBreedingAge());
-        System.out.println(fox.getMaxAge());
-        System.out.println(fox.getBreedingProbability());
-        System.out.println(fox.getMaxLitterSize());
-
-
-        simulator.runLongSimulation();
 
     }
 }
