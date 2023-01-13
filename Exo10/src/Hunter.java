@@ -1,13 +1,20 @@
 import java.util.List;
 
-public abstract class Hunter implements Actor, Drawable {
+public class Hunter implements Actor, Drawable {
 
-    public abstract void act(List<Actor> newAnimals);
+    public void act(List<Actor> newAnimals) {
 
-    public abstract boolean isAlive();
+    }
 
-    public abstract Location getLocation();
+    public boolean isAlive() {
+        return false;
+    }
 
-    public abstract void setLocation(Location newLocation);
+    public Location getLocation() {
+        return null;
+    }
+
+    public void setLocation(Location newLocation) {
+    }
 
 }

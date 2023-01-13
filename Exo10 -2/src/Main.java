@@ -4,6 +4,8 @@ public class Main {
 
 
 
+
+
         for (int i = 0; i < 50; i++) {
             simulator.simulateOneStep();
             try {
