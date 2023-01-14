@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="afd91b3d-0a8a-4755-a91f-b12433a91621" name="Changes" comment="" />
+    <list default="true" id="a56c24e9-9850-4105-a854-cb1eb8b0f398" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KJoao2HzQA2YDjkMvvzsY8ubi5" />
+  <component name="ProjectId" id="2KK6vffopqskM3iOa40SypDm5rt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,23 +34,28 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="UI-Exo3" />
+      <module name="TirageCarte" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="afd91b3d-0a8a-4755-a91f-b12433a91621" name="Changes" comment="" />
-      <created>1673702114012</created>
+      <changelist id="a56c24e9-9850-4105-a854-cb1eb8b0f398" name="Changes" comment="" />
+      <created>1673711161099</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673702114012</updated>
-      <workItem from="1673702115200" duration="10444000" />
+      <updated>1673711161099</updated>
+      <workItem from="1673711162285" duration="2894000" />
     </task>
     <servers />
   </component>
