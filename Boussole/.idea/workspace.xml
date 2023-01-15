@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb0b9439-968c-4461-9765-68d3cbdf716f" name="Changes" comment="" />
+    <list default="true" id="0188c4ac-e06b-497d-8954-7a122863a88e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,23 +20,23 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KKAQ9Weo17k9TS6qU5qaTmzEQt" />
+  <component name="ProjectId" id="2KMDyGwBai7ZmYAG79rbP1tXfc8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Fibonacci" />
+      <module name="Boussole" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -50,14 +50,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bb0b9439-968c-4461-9765-68d3cbdf716f" name="Changes" comment="" />
-      <created>1673712883543</created>
+      <changelist id="0188c4ac-e06b-497d-8954-7a122863a88e" name="Changes" comment="" />
+      <created>1673775812809</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673712883543</updated>
-      <workItem from="1673712884778" duration="2962000" />
-      <workItem from="1673775672527" duration="4000" />
-      <workItem from="1673775683371" duration="5000" />
+      <updated>1673775812809</updated>
+      <workItem from="1673775814137" duration="7455000" />
     </task>
     <servers />
   </component>
