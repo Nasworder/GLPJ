@@ -52,10 +52,11 @@ public class Draw extends JComponent {
                     g.setColor(color);
                     g.fillRect(x * widthRect, y * heightRect, widthRect, heightRect);
                     paintedRects.put(count, color);
-                } else {
-                    g.setColor(Color.BLACK);
-                    g.drawRect(x * widthRect, y * heightRect, widthRect, heightRect);
                 }
+
+                g.setColor(Color.BLACK);
+                g.drawRect(x * widthRect, y * heightRect, widthRect, heightRect);
+
 
                 count++;
             }
