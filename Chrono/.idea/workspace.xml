@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9df6b03e-4213-4b14-a7cc-e4c04e3fbd49" name="Changes" comment="" />
+    <list default="true" id="9df6b03e-4213-4b14-a7cc-e4c04e3fbd49" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Damier/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Damier/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +60,9 @@
       <updated>1673798757651</updated>
       <workItem from="1673798758959" duration="4758000" />
       <workItem from="1673856410494" duration="118000" />
+      <workItem from="1673959070652" duration="647000" />
+      <workItem from="1675177553867" duration="607000" />
+      <workItem from="1676627410348" duration="853000" />
     </task>
     <servers />
   </component>
